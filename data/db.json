@@ -19,6 +19,7 @@
             "price": 999000,
             "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/c/o/con162058c-1_3.jpg",
             "categoryId": 1,
+            "gendersId": 1,
             "authorId": 1,
             "createdAt": "2023-10-30T06:04:22.258Z",
             "updatedAt": "2023-10-30T06:04:22.258Z"
@@ -31,27 +32,61 @@
             "price": 999000,
             "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON570257C-White.jpg",
             "categoryId": 2,
+            "gendersId": 2,
             "authorId": 1,
             "createdAt": "2023-10-30T06:04:22.258Z",
             "updatedAt": "2023-10-30T06:04:22.258Z"
         }
     ],
-    "categories": [
+    "genders": [
         {
             "id": 1,
             "name": "men",
+            "mainImg": "https://www.converse.id/media/wysiwyg/960x1350_men_desktop.jpg",
             "createdAt": "2023-10-30T06:06:18.267Z",
             "updatedAt": "2023-10-30T06:06:18.267Z"
         },
         {
             "id": 2,
             "name": "women",
+            "mainImg": "https://www.converse.id/media/wysiwyg/960x1350_women_desktop.jpg",
             "createdAt": "2023-10-30T06:06:18.267Z",
             "updatedAt": "2023-10-30T06:06:18.267Z"
         },
         {
             "id": 3,
             "name": "kids",
+            "mainImg": "https://www.converse.id/media/wysiwyg/960x1350_kids_desktop.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "High Top",
+            "mainImg": "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw34a014b4/images/a_107/162050C_A_107X1.jpg?sw=964",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 2,
+            "name": "Low Top",
+            "mainImg": "https://shoebizz.co.nz/cdn/shop/products/3J235_standard.jpg?v=1613350795",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 3,
+            "name": "Comfort",
+            "mainImg": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-58179422/converse_sepatu_sneakers_pria_converse_chuck_70_at-cx_future_comfort_high_top_light_field_surplus_-egret_original_full01_004230df.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 4,
+            "name": "Platform",
+            "mainImg": "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw47a0143e/images/a_08/568497C_A_08X1.jpg?sw=406",
             "createdAt": "2023-10-30T06:06:18.267Z",
             "updatedAt": "2023-10-30T06:06:18.267Z"
         }
