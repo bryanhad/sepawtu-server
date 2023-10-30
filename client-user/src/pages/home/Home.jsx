@@ -1,13 +1,18 @@
+import Container from "../../components/Container";
 import GenderList from "./GenderList";
 import NewProductShowCase from "./NewProductShowCase";
 import TrendingStyles from "./TrendingStyles";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-6 w-full">
-        <TrendingStyles/>
+    <div className="flex flex-col gap-8 w-full">
+        <Container>
+            <TrendingStyles/>
+        </Container>
         <NewProductShowCase/>
-        <GenderList/>
+        <Container>
+            <GenderList/>
+        </Container>
     </div>
   )
 }
