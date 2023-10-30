@@ -1,0 +1,138 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "bryanhad22",
+            "email": "bryanhadinata76@gmail.com",
+            "password": "bryanhad22",
+            "role": "admin",
+            "phoneNumber": "085216165452",
+            "address": "Jl. Mangga Besar 12, No.12"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Chuck 70",
+            "slug": "chuck-70",
+            "description": "Di tahun 1970, Chuck Taylor All Star berubah menjadi salah satu sneakers basket terbaik yang pernah ada. Chuck 70 merayakan warisan tersebut dengan menyatukan detail yang berasal dari arsip-arsip dengan pembaharuan modern. Bantalan insole Ortholite dan jahitan lidah bersayap menjadikan kenyamanan jauh lebih baik lagi. Midsole egret glossy dan patch bintang pergelangan kaki yang khas menguarkan gaya vintage dan ikonik dari sepatu ini. Terbaharui dalam warna-warna arsip pada kanvas premium.",
+            "price": 999000,
+            "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/c/o/con162058c-1_3.jpg",
+            "categoryId": 1,
+            "authorId": 1,
+            "createdAt": "2023-10-30T06:04:22.258Z",
+            "updatedAt": "2023-10-30T06:04:22.258Z"
+        },
+        {
+            "id": 2,
+            "name": "Chuck Taylor All Star Move Platform",
+            "slug": "chuck-taylor-all-star-move-platform",
+            "description": "Anda sudah mengenal low top kami–upper kanvasnya, outsole berpola diamond, dan logo khasnya. Kami menjahit siluet ikonik ini untuknya dan meletakkannya di atas cupsole EVA ultra-ringan, memberikan Anda Chuck Taylor All Star Move. Dengan kenyamanan dan ketinggian ekstra. Lihatlah ia.",
+            "price": 999000,
+            "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON570257C-White.jpg",
+            "categoryId": 2,
+            "authorId": 1,
+            "createdAt": "2023-10-30T06:04:22.258Z",
+            "updatedAt": "2023-10-30T06:04:22.258Z"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "men",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 2,
+            "name": "women",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 3,
+            "name": "kids",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        }
+    ],
+    "images": [
+        {
+            "id": 1,
+            "productId": 1,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON162058C-3.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 2,
+            "productId": 1,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON162058C-4.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 3,
+            "productId": 1,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON162058C-5.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 4,
+            "productId": 1,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/c/o/con162058c-1_3.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 5,
+            "productId": 1,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON162058C-6.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 6,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON570257C-2.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 7,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON570257C-3.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 8,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON570257C-4.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 9,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON570257C-5.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 10,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/C/O/CON570257C-6.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        },
+        {
+            "id": 11,
+            "productId": 2,
+            "imgUrl": "https://www.converse.id/media/catalog/product/cache/1361a5fa2136490ab0bb297f837f6217/0/4/04-CONVERSE-FFSSBCONA-CON570257C-White.jpg",
+            "createdAt": "2023-10-30T06:06:18.267Z",
+            "updatedAt": "2023-10-30T06:06:18.267Z"
+        }
+    ]
+}
