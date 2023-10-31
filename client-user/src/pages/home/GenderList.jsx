@@ -18,15 +18,16 @@ export default function GenderList() {
     }, [])
 
     return (
-        <div className="grid sm:grid-cols-3 px-4 gap-4">
+        <div className="flex flex-col md:flex-row justify-evenly gap-2">
             {genders.map((gender, i) => (
                 <Link
                     key={i}
-                    className="flex flex-col max-w-max justify-self-center hover:translate-y-[-5px] duration-150 ease-in-out relative"
+                    to={gender.name}
+                    className="justify-self-center hover:translate-y-[-5px] duration-150 ease-in-out relative"
                 >
-                    <div className="w-full max-h-[200px] grid place-content-center overflow-hidden">
+                    <div className="w-full md:max-w-[300px] max-md:max-h-[150px] grid place-content-center overflow-hidden rounded-xl">
                         <img
-                            className="w-full h-full object-cover"
+                            className="w-full h-full max-md:pt-[50vw] object-cover"
                             src={gender.mainImg}
                             alt={`image of '${gender.name}' model`}
                         />
