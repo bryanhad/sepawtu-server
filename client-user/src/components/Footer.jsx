@@ -1,6 +1,6 @@
-export default function Footer() {
+export default function Footer({className}) {
     return (
-        <footer className="flex flex-col">
+        <footer className={`flex flex-col ${className}`}>
             <div className="bg-black">
                 <section
                     className={`max-w-[1280px] w-full mx-auto flex justify-between text-white p-4`}

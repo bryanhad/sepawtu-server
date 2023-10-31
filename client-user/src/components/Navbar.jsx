@@ -4,7 +4,7 @@ import { GrMenu } from "react-icons/gr"
 import { IoClose } from "react-icons/io5"
 import { useState } from "react"
 
-export default function Navbar() {
+export default function Navbar({ className }) {
     const [navOpen, setNavOpen] = useState(false)
 
     const links = [
@@ -23,21 +23,26 @@ export default function Navbar() {
     ]
 
     return (
-        <nav className="w-full p-2 relative">
+        <nav
+            data-navbar
+            className={`w-full py-6 px-2 ${className} border-b-[1px] border-b-slate-100 bg-white`}
+        >
             <div
                 className={`w-full max-w-[1280px] mx-auto flex justify-between`}
             >
                 <div className="flex">
-                    <span className="flex text-2xl items-center font-extrabold">
+                    <span className="flex text-3xl items-center font-extrabold">
                         <h1>Sepawtu</h1>
-                        <GiConverseShoe className="pt-1" />
+                        <GiConverseShoe className="pt-2" />
                     </span>
-                    <div className="ml-4 flex gap-4 font-semibold">
+                    <div className="hidden md:flex ml-6 gap-4 font-semibold">
                         {links.map((link, i) => (
-                            <NavLink to={link.to} className='flex items-end' key={i}>
-                                <p>
-                                {link.name}
-                                </p>
+                            <NavLink
+                                to={link.to}
+                                className="flex items-end"
+                                key={i}
+                            >
+                                <p>{link.name}</p>
                             </NavLink>
                         ))}
                     </div>
@@ -49,11 +54,6 @@ export default function Navbar() {
                 >
                     {navOpen ? <IoClose /> : <GrMenu />}
                 </button>
-
-                <div className="hidden md:flex">
-                    <NavLink to="/">HOME</NavLink>
-                    <NavLink to="/about">ABOUT</NavLink>
-                </div>
 
                 {/* burger menu */}
                 <nav

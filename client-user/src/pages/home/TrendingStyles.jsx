@@ -21,11 +21,11 @@ export default function TrendingStyles() {
     return (
         <div className="flex flex-col">
             <section>
-                <div className="flex flex-col px-4 gap-3">
+                <div className="flex flex-col gap-3">
                     <h1 className="font-bold text-3xl">Trending Styles</h1>
                     <Link
                         to="categories"
-                        className="flex gap-2 items-center font-semibold"
+                        className="flex gap-2 items-center font-semibold max-w-max py-2 pr-2"
                     >
                         <BiSolidRightArrow />
                         <p>See all of our shoes!</p>
@@ -35,7 +35,7 @@ export default function TrendingStyles() {
                     {categories.map((category, i) => (
                         <Link
                             key={i}
-                            className="flex flex-col max-w-max justify-self-center hover:translate-y-[-5px] duration-150 ease-in-out"
+                            className="flex flex-col max-w-max justify-self-center hover:translate-y-[-5px] duration-150 ease-in-out pt-[50px]"
                         >
                             <div className="max-w-[300px] max-h-[200px] grid place-content-center overflow-hidden">
                                 <img
