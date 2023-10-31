@@ -1,8 +1,9 @@
 import { GiConverseShoe } from "react-icons/gi"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { GrMenu } from "react-icons/gr"
 import { IoClose } from "react-icons/io5"
 import { useState } from "react"
+import Container from "./Container"
 
 export default function Navbar({ className }) {
     const [navOpen, setNavOpen] = useState(false)
@@ -24,17 +25,14 @@ export default function Navbar({ className }) {
 
     return (
         <nav
-            data-navbar
-            className={`w-full py-6 px-2 ${className} border-b-[1px] border-b-slate-100 bg-white`}
+            className={`w-full h-[75px] flex items-center px-2 ${className} border-b-[1px] border-b-slate-100 bg-white`}
         >
-            <div
-                className={`w-full max-w-[1280px] mx-auto flex justify-between`}
-            >
-                <div className="flex">
-                    <span className="flex text-3xl items-center font-extrabold">
+            <Container className={`flex justify-between`}>
+            <div className="flex">
+                    <Link to='/' className="flex text-3xl items-center font-extrabold">
                         <h1>Sepawtu</h1>
                         <GiConverseShoe className="pt-2" />
-                    </span>
+                    </Link>
                     <div className="hidden md:flex ml-6 gap-4 font-semibold">
                         {links.map((link, i) => (
                             <NavLink
@@ -65,7 +63,7 @@ export default function Navbar({ className }) {
                 >
                     a
                 </nav>
-            </div>
+            </Container>
         </nav>
     )
 }
