@@ -24,7 +24,7 @@ export default function StarBanner(props) {
             id: 3,
             name: "kids",
             title: `Kid's Shoes`,
-            color: "bg-yellow-300",
+            color: "bg-violet-300",
             mainImg: kidsShoe,
         },
     ]
