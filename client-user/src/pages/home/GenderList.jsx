@@ -1,21 +1,8 @@
-import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export default function GenderList() {
-    const [genders, setGenders] = useState([])
-
-    useEffect(() => {
-        const fetchGenders = async () => {
-            try {
-                const res = await fetch("http://localhost:3000/genders")
-                const data = await res.json()
-                setGenders(data)
-            } catch (err) {
-                console.log(err)
-            }
-        }
-        fetchGenders()
-    }, [])
+    const {genders} = useSelector((store) => store.categories)
 
     return (
         <div className="flex flex-col md:flex-row justify-evenly gap-2">
