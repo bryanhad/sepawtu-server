@@ -1,7 +1,7 @@
 import { useState } from "react"
-import {GrFormNext, GrFormPrev} from 'react-icons/gr'
+import {GrFormNext, GrFormPrevious} from 'react-icons/gr'
 
-export default function ImageCarousel({imgArr}) {
+export default function ImageCarousel({imgArr, className}) {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     function goNext() {
@@ -15,12 +15,17 @@ export default function ImageCarousel({imgArr}) {
 
 
   return (
-    <div className="relative max-w-[300px]">
-        <img src={imgArr[currentIndex].imgUrl} alt="" />
-        <button onClick={goNext}>
+    <div className={`relative ${className} w-full h-full`}>
+        <img src={imgArr[currentIndex].imgUrl} alt="" className="relative z-[1] w-full h-full object-cover"/>
+        <button onClick={goPrev} className="absolute left-0 top-[50%] translate-y-[-50%] p-2 text-xl z-[5]">
+            <GrFormPrevious/>
+        </button>
+        <button onClick={goNext} className="absolute right-0 top-[50%] translate-y-[-50%] p-2 text-xl z-[5]">
             <GrFormNext/>
         </button>
-        <button onClick={goPrev}>prev</button>
+        <p className="absolute bottom-0 left-[50%] translate-x-[-50%] z-[2] translate-y-[-10px]">
+            {currentIndex+1} / {imgArr.length}
+        </p>
     </div>
   )
 }

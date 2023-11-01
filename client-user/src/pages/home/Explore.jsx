@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { BiRightArrowAlt } from "react-icons/bi"
 
-export default function Explore() {
+export default function Explore({className}) {
     const links = [
         { id: 1, name: `All Women's`, to: "women" },
         { id: 2, name: `All Men's`, to: "men" },
@@ -10,7 +10,7 @@ export default function Explore() {
     ]
 
     return (
-        <div className="flex flex-col gap-6">
+        <div className={`flex flex-col gap-6 ${className}`}>
             <h1 className="text-4xl font-semibold text-center lg:text-start">Explore Sepawtu</h1>
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {links.map((link) => (
