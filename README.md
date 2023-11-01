@@ -18,7 +18,7 @@ Target:
 - [x] React: Class Component vs Function Component
 - [x] Mempelajari State menggunakan useState
 - [x] Mengirim Props baik berupa sebuah state atau function
-- [ ] Event Handling (onClick, onChange, onSubmit)
+- [x] Event Handling (onClick, onChange, onSubmit)
 - [x] Conditional Rendering di dalam React
 - [x] Looping List of Data di dalam React
 - [x] Lifecycle component menggunakan useEffect
@@ -54,19 +54,19 @@ Target:
 
 Target:
 
-- [ ] Lecture - Redux
-- [ ] State vs Global State
-- [ ] Bagaimana cara membuat Store
-- [ ] Bagaimana cara membuat Reducer
-- [ ] Bagaimana cara membuat Action
-- [ ] Membuat Action Creators
-- [ ] Membuat Action Types
-- [ ] Lecture - Redux-thunk (handle async)
-- [ ] Cara menggunakan combineReducers
+- [x] Lecture - Redux
+- [x] State vs Global State
+- [x] Bagaimana cara membuat Store
+- [x] Bagaimana cara membuat Reducer
+- [x] Bagaimana cara membuat Action
+- [x] Membuat Action Creators
+- [x] Membuat Action Types
+- [x] Lecture - Redux-thunk (handle async)
+- [x] Cara menggunakan combineReducers
 
 **Report:**
 
-...
+> Pada hari ini saya telah berhasil mengaplikasikan redux kedalam aplikasi client-user saya. dan juga menggunakan global statenya di setiap component yang membutuhkannya.
 
 ## W1D4
 
