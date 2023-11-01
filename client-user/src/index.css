@@ -42,3 +42,7 @@
     color: white;
     transition: 0.25s;
 }
+
+a.active {
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+}

@@ -61,7 +61,7 @@ export default function Navbar({ className }) {
                             : "right-0 translate-x-[0%] duration-300 ease-in-out"
                     }`}
                 >
-                    a
+                    
                 </nav>
             </Container>
         </nav>
