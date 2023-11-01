@@ -1,9 +1,9 @@
 import { BiSolidRightArrow } from "react-icons/bi"
 import { Link } from "react-router-dom"
-import useFetch from "../../hooks/useFetch"
+import { useSelector } from "react-redux"
 
 export default function TrendingStyles() {
-    const {data: styles} = useFetch('http://localhost:3000/styles')
+    const {styles} = useSelector((store) => store.categories)
 
     return (
         <div className="flex flex-col">

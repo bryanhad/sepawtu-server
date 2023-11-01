@@ -15,7 +15,6 @@ export default function ShoeDetail() {
     const { data: shoe, isLoading } = useFetch(
         `http://localhost:3000/products?slug=${slug}&_embed=images`
     )
-    console.log(shoe)
     useEffect(() => {
         if (shoe.length) {
             setImages([{ imgUrl: shoe[0].mainImg }, ...shoe[0].images])
