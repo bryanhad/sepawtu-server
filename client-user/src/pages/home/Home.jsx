@@ -6,7 +6,7 @@ import TrendingStyles from "./TrendingStyles";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-12 w-full pt-4">
+    <div className="flex flex-col gap-12 w-full pt-6">
         <Container>
             <TrendingStyles/>
         </Container>
