@@ -19,7 +19,7 @@
             "price": 999000,
             "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/c/o/con162058c-1_3.jpg",
             "categoryId": 1,
-            "gendersId": 1,
+            "genderId": 1,
             "authorId": 1,
             "createdAt": "2023-10-30T06:04:22.258Z",
             "updatedAt": "2023-10-30T06:04:22.258Z"
@@ -32,7 +32,33 @@
             "price": 999000,
             "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON570257C-White.jpg",
             "categoryId": 2,
-            "gendersId": 2,
+            "genderId": 1,
+            "authorId": 1,
+            "createdAt": "2023-10-30T06:04:22.258Z",
+            "updatedAt": "2023-10-30T06:04:22.258Z"
+        },
+        {
+            "id": 3,
+            "name": "Chuck Taylor All Star Lift Bold Stitching",
+            "slug": "chuck-taylor-all-star-lift-bold-stitching",
+            "description": "Di tahun 1970, Chuck Taylor All Star berubah menjadi salah satu sneakers basket terbaik yang pernah ada. Chuck 70 merayakan warisan tersebut dengan menyatukan detail yang berasal dari arsip-arsip dengan pembaharuan modern. Mantoel deh pokoke",
+            "price": 1599000,
+            "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA07953CPAL005-1.jpg",
+            "categoryId": 1,
+            "genderId": 2,
+            "authorId": 1,
+            "createdAt": "2023-10-30T06:04:22.258Z",
+            "updatedAt": "2023-10-30T06:04:22.258Z"
+        },
+        {
+            "id": 4,
+            "name": "Chuck Taylor All Star Maiden Street Sparkle Party",
+            "slug": "chuck-taylor-all-star-maiden-street-sparkle-party",
+            "description": "Anda sudah mengenal low top kami–upper kanvasnya, outsole berpola diamond, dan logo khasnya. Kami menjahit siluet ikonik ini untuknya dan meletakkannya di udah ga usah cing cong, beli aja dah",
+            "price": 699000,
+            "mainImg": "https://www.converse.id/media/catalog/product/cache/92f171526e7977390d5520345996ff51/0/1/01-CONVERSE-FFSSBCONA-CONA05535C-Pink.jpg",
+            "categoryId": 2,
+            "genderId": 3,
             "authorId": 1,
             "createdAt": "2023-10-30T06:04:22.258Z",
             "updatedAt": "2023-10-30T06:04:22.258Z"
@@ -61,7 +87,7 @@
             "updatedAt": "2023-10-30T06:06:18.267Z"
         }
     ],
-    "categories": [
+    "styles": [
         {
             "id": 1,
             "name": "High Top",

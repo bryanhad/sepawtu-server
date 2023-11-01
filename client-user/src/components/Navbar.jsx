@@ -1,43 +1,37 @@
 import { GiConverseShoe } from "react-icons/gi"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { GrMenu } from "react-icons/gr"
 import { IoClose } from "react-icons/io5"
 import { useState } from "react"
+import Container from "./Container"
+import { useSelector } from "react-redux"
+import capitalizeFirstLetter from "../helper/capitalizeFirstLetter"
 
-export default function Navbar() {
+export default function Navbar({ className }) {
+    const { genders, styles } = useSelector((state) => state.categories)
     const [navOpen, setNavOpen] = useState(false)
 
-    const links = [
-        {
-            name: "Men",
-            to: "men",
-        },
-        {
-            name: "Women",
-            to: "women",
-        },
-        {
-            name: "Kids",
-            to: "kids",
-        },
-    ]
-
     return (
-        <nav className="w-full p-2 relative">
-            <div
-                className={`w-full max-w-[1280px] mx-auto flex justify-between`}
-            >
+        <nav
+            className={`w-full h-[75px] flex items-center px-2 ${className} border-b-[1px] border-b-slate-100 bg-white`}
+        >
+            <Container className={`flex justify-between`}>
                 <div className="flex">
-                    <span className="flex text-2xl items-center font-extrabold">
+                    <Link
+                        to="/"
+                        className="flex text-3xl items-center font-extrabold"
+                    >
                         <h1>Sepawtu</h1>
-                        <GiConverseShoe className="pt-1" />
-                    </span>
-                    <div className="ml-4 flex gap-4 font-semibold">
-                        {links.map((link, i) => (
-                            <NavLink to={link.to} className='flex items-end' key={i}>
-                                <p>
-                                {link.name}
-                                </p>
+                        <GiConverseShoe className="pt-2" />
+                    </Link>
+                    <div className="hidden md:flex ml-6 gap-4 font-semibold">
+                        {genders.map((gender) => (
+                            <NavLink
+                                to={gender.name}
+                                className="flex items-end"
+                                key={gender.id}
+                            >
+                                <p>{capitalizeFirstLetter(gender.name)}</p>
                             </NavLink>
                         ))}
                     </div>
@@ -50,22 +44,47 @@ export default function Navbar() {
                     {navOpen ? <IoClose /> : <GrMenu />}
                 </button>
 
-                <div className="hidden md:flex">
-                    <NavLink to="/">HOME</NavLink>
-                    <NavLink to="/about">ABOUT</NavLink>
-                </div>
-
                 {/* burger menu */}
                 <nav
-                    className={`fixed h-full top-0 min-w-[70%] border-l-[1px] bg-slate-200/50 ${
+                    className={`fixed h-full top-0 min-w-[60%] shadow-md pt-[80px] p-4 bg-white text-end flex flex-col gap-4 md:hidden ${
                         !navOpen
                             ? "right-0 translate-x-[100%] duration-300 ease-in-out"
                             : "right-0 translate-x-[0%] duration-300 ease-in-out"
                     }`}
                 >
-                    a
+                    <div>
+                        <h5 className="font-semibold converse-font">Styles</h5>
+                        <div className="flex flex-col gap-2 items-end mt-2">
+                            {styles.map((style) => {
+                                const endpoint = style.name.toLowerCase().split(' ')
+                                const to = endpoint.length >= 2 
+                                    ? endpoint.join('-') : endpoint[0]
+                                return (<NavLink
+                                    to={to}
+                                    key={style.id}
+                                    className="max-w-max"
+                                >
+                                    <p>{capitalizeFirstLetter(style.name)}</p>
+                                </NavLink>)
+                            })}
+                        </div>
+                    </div>
+                    <div>
+                        <h5 className="font-semibold converse-font">Genders</h5>
+                        <div className="flex flex-col gap-2 items-end mt-2">
+                            {genders.map((gender) => (
+                                <NavLink
+                                    to={gender.name}
+                                    key={gender.id}
+                                    className="max-w-max"
+                                >
+                                    <p>{capitalizeFirstLetter(gender.name)}</p>
+                                </NavLink>
+                            ))}
+                        </div>
+                    </div>
                 </nav>
-            </div>
+            </Container>
         </nav>
     )
 }

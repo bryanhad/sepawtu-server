@@ -18,8 +18,8 @@ Target:
 - [x] React: Class Component vs Function Component
 - [x] Mempelajari State menggunakan useState
 - [x] Mengirim Props baik berupa sebuah state atau function
-- [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Conditional Rendering di dalam React
+- [x] Event Handling (onClick, onChange, onSubmit)
+- [x] Conditional Rendering di dalam React
 - [x] Looping List of Data di dalam React
 - [x] Lifecycle component menggunakan useEffect
 - [x] Membuat server (json-server)
@@ -32,19 +32,17 @@ Target:
 
 ...
 30/10/2023
-- Pada tugas ini, saya memilih tema Brand Showcase dengan mengambil referensi dari Converse. Saya akan menggunakan Tailwind CSS sebagai CSS framework di tugas ini.
 
-> contoh: Hari ini saya belajar React Component. Saya memahami bagaimana cara React bekerja. Lifecycle yang sudah saya coba adalah componentDidMount yang digunakan untuk fetch data dst. Namun saya belum mencoba menggunakan onSubmit dikarenakan data yang didapat belum sesuai.
-> Pada tugas ini, saya memilih Tema A dengan mengambil referensi dari B. Saya juga akan menggunakan CSS Framework yaitu Tailwind CSS
+> Pada tugas ini, saya memilih tema Brand Showcase dengan mengambil referensi dari Converse. Saya akan menggunakan Tailwind CSS sebagai CSS framework di tugas ini.
 
 ## W1D2
 
 Target:
 
-- [ ] Lecture - Custom Hooks
-- [ ] Rules of Hooks
-- [ ] Lecture - React-Router
-- [ ] Membuat router user-side (min: home, detail)
+- [x] Lecture - Custom Hooks
+- [x] Rules of Hooks
+- [x] Lecture - React-Router
+- [x] Membuat router user-side (min: home, detail)
 - [ ] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [ ] Membuat privateRoute untuk admin
 
@@ -56,19 +54,19 @@ Target:
 
 Target:
 
-- [ ] Lecture - Redux
-- [ ] State vs Global State
-- [ ] Bagaimana cara membuat Store
-- [ ] Bagaimana cara membuat Reducer
-- [ ] Bagaimana cara membuat Action
-- [ ] Membuat Action Creators
-- [ ] Membuat Action Types
-- [ ] Lecture - Redux-thunk (handle async)
-- [ ] Cara menggunakan combineReducers
+- [x] Lecture - Redux
+- [x] State vs Global State
+- [x] Bagaimana cara membuat Store
+- [x] Bagaimana cara membuat Reducer
+- [x] Bagaimana cara membuat Action
+- [x] Membuat Action Creators
+- [x] Membuat Action Types
+- [x] Lecture - Redux-thunk (handle async)
+- [x] Cara menggunakan combineReducers
 
 **Report:**
 
-...
+> Pada hari ini saya telah berhasil mengaplikasikan redux kedalam aplikasi client-user saya. dan juga menggunakan global statenya di setiap component yang membutuhkannya.
 
 ## W1D4
 
