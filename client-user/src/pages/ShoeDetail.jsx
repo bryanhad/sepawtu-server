@@ -23,7 +23,7 @@ export default function ShoeDetail() {
     }, [shoe])
 
     return (
-        <Container className="flex flex-col gap-4">
+        <Container className="flex flex-col gap-4 pt-6">
             {isLoading ? (
                 <h1>loading...</h1>
             ) : (
@@ -31,7 +31,7 @@ export default function ShoeDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {images.length && (
                             <section className="w-full flex justify-center">
-                                <div className="max-w-[600px]">
+                                <div className="max-w-[500px] w-full">
                                     <ImageCarousel
                                         imgArr={images}
                                         className="border-b border-b-slate-300"
