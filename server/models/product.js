@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             this.belongsTo(models.User, { foreignKey: "authorId" })
             this.belongsTo(models.Style, { foreignKey: "styleId" })
+            this.hasMany(models.Image, { foreignKey: "productId" })
         }
     }
     Product.init(
@@ -95,25 +96,37 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
                 validate: {
                     notNull: {
-                        msg: "Product main image is required",
+                        msg: "Product thumbnail is required",
                     },
                     notEmpty: {
-                        msg: "Product main image is required",
+                        msg: "Product thumbnail is required",
                     },
                 },
             },
-            styleId: DataTypes.INTEGER,
-            authorId: DataTypes.INTEGER,
+            styleId: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: "Styles",
+                    key: "id",
+                },
+            },
+            authorId: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: "Users",
+                    key: "id",
+                },
+            },
         },
         {
             sequelize,
             modelName: "Product",
         }
     )
-    Product.beforeCreate(product => {
-        const productName = product.name.toLowerCase().split(' ')
-        const slug = productName.length >= 2
-            ? productName.join('-') : productName[0]
+    Product.beforeCreate((product) => {
+        const productName = product.name.toLowerCase().split(" ")
+        const slug =
+            productName.length >= 2 ? productName.join("-") : productName[0]
 
         product.slug = slug
     })

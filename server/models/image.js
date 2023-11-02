@@ -3,12 +3,18 @@ const { Model } = require("sequelize")
 module.exports = (sequelize, DataTypes) => {
     class Image extends Model {
         static associate(models) {
-            // define association here
+            this.belongsTo(models.Product, { foreignKey: "productId" })
         }
     }
     Image.init(
         {
-            productId: DataTypes.INTEGER,
+            productId: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: "Products",
+                    key: "id"
+                }
+            },
             imgUrl: {
                 type: DataTypes.STRING,
                 allowNull: false,
