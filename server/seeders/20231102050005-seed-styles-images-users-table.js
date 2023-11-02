@@ -16,6 +16,7 @@ module.exports = {
             return {
                 ...user,
                 password: hashString(password),
+                profilePicture: `https://source.boringavatars.com/beam/40/${user.username}`,
                 createdAt: new Date(),
                 updatedAt: new Date(),
             }

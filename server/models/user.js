@@ -96,6 +96,7 @@ module.exports = (sequelize, DataTypes) => {
                     },
                 },
             },
+            profilePicture: DataTypes.STRING,
             phoneNumber: DataTypes.STRING,
             address: DataTypes.STRING,
         },
@@ -106,6 +107,7 @@ module.exports = (sequelize, DataTypes) => {
     )
     User.beforeCreate(user => {
         user.password = hashString(user.password)
+        user.profilePicture = `https://source.boringavatars.com/beam/40/${user.username}`
     })
     return User
 }
