@@ -1,8 +1,26 @@
-import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export default function GenderList() {
-    const {genders} = useSelector((store) => store.categories)
+    const genders = [
+        {
+            id: 1,
+            name: "men",
+            mainImg:
+                "https://www.converse.id/media/wysiwyg/960x1350_men_desktop.jpg",
+        },
+        {
+            id: 2,
+            name: "women",
+            mainImg:
+                "https://www.converse.id/media/wysiwyg/960x1350_women_desktop.jpg",
+        },
+        {
+            id: 3,
+            name: "kids",
+            mainImg:
+                "https://www.converse.id/media/wysiwyg/960x1350_kids_desktop.jpg",
+        },
+    ]
 
     return (
         <div className="flex flex-col md:flex-row justify-evenly gap-2">

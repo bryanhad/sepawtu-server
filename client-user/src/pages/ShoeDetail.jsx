@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import useFetch from "../hooks/useFetch"
 import Container from "../components/Container"
 import numToIdr from "../helper/numToIdr"
 import { useEffect, useState } from "react"
@@ -7,23 +6,30 @@ import ImageCarousel from "../components/imageCarousel"
 import Explore from "./home/Explore"
 import AddToCartButton from "../components/AddToCartButton"
 import WishListButton from "../components/WishListButton"
+import { useDispatch, useSelector } from "react-redux"
+import ProductsAction from "../store/actions/products/actionCreator"
 
 export default function ShoeDetail() {
+    const dispatch = useDispatch()
+    const {shoesFiltered} = useSelector(store => store.products)
     const { slug } = useParams()
+
+    useEffect(() => {
+        dispatch(ProductsAction.fetchShoes({slug, images: true}))
+    }, [dispatch, slug])
+
     const [images, setImages] = useState([])
 
-    const { data: shoe, isLoading } = useFetch(
-        `http://localhost:3000/products?slug=${slug}&_embed=images`
-    )
     useEffect(() => {
-        if (shoe.length) {
-            setImages([{ imgUrl: shoe[0].mainImg }, ...shoe[0].images])
+        if (shoesFiltered.length && shoesFiltered[0].Images) {
+            setImages([{ imgUrl: shoesFiltered[0].mainImg }, ...shoesFiltered[0].Images])
         }
-    }, [shoe])
+    }, [shoesFiltered])
 
     return (
         <Container className="flex flex-col gap-4 pt-6">
-            {isLoading ? (
+            <p>INI SHOE DETAIL PAGE</p>
+            {!shoesFiltered.length ? (
                 <h1>loading...</h1>
             ) : (
                 <>
@@ -43,9 +49,9 @@ export default function ShoeDetail() {
                                 <section className="flex justify-between">
                                     <div className="flex flex-col gap-1">
                                         <h1 className="converse-font font-bold">
-                                            {shoe[0].name}
+                                            {shoesFiltered[0].name}
                                         </h1>
-                                        <p>{numToIdr(shoe[0].price)}</p>
+                                        <p>{numToIdr(shoesFiltered[0].price)}</p>
                                     </div>
                                     <WishListButton/>
                                 </section>
@@ -53,7 +59,7 @@ export default function ShoeDetail() {
                                     <h2 className="text-xl font-light">
                                         Detail
                                     </h2>
-                                    <p className="text-sm md:max-w-[80%]">{shoe[0].description}</p>
+                                    <p className="text-sm md:max-w-[80%]">{shoesFiltered[0].description}</p>
                                 </section>
                                 <AddToCartButton className='mt-4 lg:max-w-[80%]'/>
                             </div>

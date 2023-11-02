@@ -8,12 +8,13 @@ import { useSelector } from "react-redux"
 import capitalizeFirstLetter from "../helper/capitalizeFirstLetter"
 
 export default function Navbar({ className }) {
-    const { genders, styles } = useSelector((state) => state.categories)
+    const genders = ["men", "women", "kids"]
+    const { styles } = useSelector((state) => state.categories)
     const [navOpen, setNavOpen] = useState(false)
 
     return (
         <nav
-            className={`w-full h-[75px] flex items-center px-2 ${className} border-b-[1px] border-b-slate-100 bg-white`}
+            className={`w-full h-[75px] flex items-center px-2 ${className} shadow-md bg-white`}
         >
             <Container className={`flex justify-between`}>
                 <div className="flex">
@@ -25,13 +26,13 @@ export default function Navbar({ className }) {
                         <GiConverseShoe className="pt-2" />
                     </Link>
                     <div className="hidden md:flex ml-6 gap-4 font-semibold">
-                        {genders.map((gender) => (
+                        {genders.map((gender, i) => (
                             <NavLink
-                                to={gender.name}
+                                to={gender}
                                 className="flex items-end"
-                                key={gender.id}
+                                key={i}
                             >
-                                <p>{capitalizeFirstLetter(gender.name)}</p>
+                                <p>{capitalizeFirstLetter(gender)}</p>
                             </NavLink>
                         ))}
                     </div>
@@ -56,29 +57,38 @@ export default function Navbar({ className }) {
                         <h5 className="font-semibold converse-font">Styles</h5>
                         <div className="flex flex-col gap-2 items-end mt-2">
                             {styles.map((style) => {
-                                const endpoint = style.name.toLowerCase().split(' ')
-                                const to = endpoint.length >= 2 
-                                    ? endpoint.join('-') : endpoint[0]
-                                return (<NavLink
-                                    to={to}
-                                    key={style.id}
-                                    className="max-w-max"
-                                >
-                                    <p>{capitalizeFirstLetter(style.name)}</p>
-                                </NavLink>)
+                                const endpoint = style.name
+                                    .toLowerCase()
+                                    .split(" ")
+                                const to =
+                                    endpoint.length >= 2
+                                        ? endpoint.join("-")
+                                        : endpoint[0]
+                                return (
+                                    <NavLink
+                                        to={to}
+                                        key={style.id}
+                                        className="max-w-max"
+                                    >
+                                        <p>
+                                            {capitalizeFirstLetter(style.name)}
+                                        </p>
+                                    </NavLink>
+                                )
                             })}
                         </div>
                     </div>
                     <div>
                         <h5 className="font-semibold converse-font">Genders</h5>
                         <div className="flex flex-col gap-2 items-end mt-2">
-                            {genders.map((gender) => (
+                            {genders.map((gender, i) => (
                                 <NavLink
-                                    to={gender.name}
-                                    key={gender.id}
+                                    to={gender}
+                                    key={i}
                                     className="max-w-max"
                                 >
-                                    <p>{capitalizeFirstLetter(gender.name)}</p>
+                                    <p>bruh</p>
+                                    <p>{capitalizeFirstLetter(gender)}</p>
                                 </NavLink>
                             ))}
                         </div>

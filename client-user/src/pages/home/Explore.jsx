@@ -16,7 +16,7 @@ export default function Explore({className}) {
                 {links.map((link) => (
                     <div key={link.id}>
                         <Link
-                            to={link.to}
+                            to={`/${link.to}`}
                             className={`w-full px-5 py-12 bg-white font-semibold hover-turn-black border-black ${
                                 link.id < links.length
                                     ? "lg:border-r-[1px]"
