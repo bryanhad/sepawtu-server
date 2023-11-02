@@ -61,11 +61,11 @@ module.exports = (sequelize, DataTypes) => {
                         const MAX = 300_000_000
                         if (value.length < MIN)
                             throw new Error(
-                                `Username must be atleast ${MIN} characters long`
+                                `Product's price must be atleast ${MIN}`
                             )
                         if (value.length > MAX)
                             throw new Error(
-                                `Username cannot be more than ${MIN} characters long`
+                                `Product's price cannot be more than ${MAX}`
                             )
                     },
                 },

@@ -1,19 +1,27 @@
+const { generateToken } = require("../helpers/jwt")
 const { User } = require("../models")
 
-export default class UserController {
-    static AdminRegister(req, res, next) {
+class UserController {
+    static async AdminRegister(req, res, next) {
         try {
-            const newUser = User.create({...req.body, role: 'admin'})
-            // res.send(201).json()
+            const newUser = await User.create({ ...req.body, role: "admin" })
+            const jwtToken = generateToken({ id: newUser.id })
+            res.status(201).json({
+                message: `Welcome to our team ${newUser.username}`,
+                access_token: jwtToken,
+                user: newUser,
+            })
         } catch (err) {
             next(err)
         }
     }
+
     static AdminLogin(req, res, next) {
         try {
-
         } catch (err) {
             next(err)
         }
     }
 }
+
+module.exports = UserController

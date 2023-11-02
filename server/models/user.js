@@ -1,5 +1,6 @@
 "use strict"
 const { Model } = require("sequelize")
+const { hashString } = require("../helpers/bcrypt")
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
         static associate(models) {
@@ -27,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
                             )
                         if (value.length > MAX)
                             throw new Error(
-                                `Username cannot be more than ${MIN} characters long`
+                                `Username cannot be more than ${MAX} characters long`
                             )
                     },
                 },
@@ -69,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
                             )
                         if (value.length > MAX)
                             throw new Error(
-                                `Password cannot be more than ${MIN} characters long`
+                                `Password cannot be more than ${MAX} characters long`
                             )
                     },
                 },
@@ -103,5 +104,8 @@ module.exports = (sequelize, DataTypes) => {
             modelName: "User",
         }
     )
+    User.beforeCreate(user => {
+        user.password = hashString(user.password)
+    })
     return User
 }
