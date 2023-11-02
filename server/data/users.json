@@ -1,0 +1,26 @@
+[
+    {
+        "username": "Bryanhad22",
+        "email": "bryanhadinata76@gmail.com",
+        "password": "bryanhad22",
+        "role": "admin",
+        "phoneNumber": "085216165452",
+        "address": "Jl Mangga Kecil 12, No.12"
+    },
+    {
+        "username": "Bambang",
+        "email": "bambang@gmail.com",
+        "password": "bambang",
+        "role": "admin",
+        "phoneNumber": "02169420360",
+        "address": "Jl Kudus Gede 11, No.11"
+    },
+    {
+        "username": "Rocky",
+        "email": "rocky@gmail.com",
+        "password": "rocky",
+        "role": "user",
+        "phoneNumber": "02176739212",
+        "address": "Jl Hari Ini 42, No.22"
+    }
+]

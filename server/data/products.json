@@ -1,0 +1,200 @@
+[
+    {
+        "name": "Comfort Walkers",
+        "description": "Designed for maximum comfort and support, these shoes are perfect for all-day wear.",
+        "price": 599999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON162050C-Black.jpg",
+        "styleId": 1,
+        "authorId": 1
+    },
+    {
+        "name": "Trailblazer Hikers",
+        "description": "Sturdy and reliable hiking shoes, built for outdoor adventures on rugged terrain.",
+        "price": 699999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON166800C-White.jpg",
+        "styleId": 1,
+        "authorId": 2
+    },
+    {
+        "name": "Athletic Flex Runners",
+        "description": "Lightweight and flexible running shoes designed to enhance your performance.",
+        "price": 799999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON172895C-Black.jpg",
+        "styleId": 2,
+        "authorId": 1
+    },
+    {
+        "name": "Classic Oxfords",
+        "description": "Timeless and elegant, these oxfords are a must-have for any formal occasion.",
+        "price": 899999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/c/o/conm7652c-1.jpg",
+        "styleId": 2,
+        "authorId": 2
+    },
+    {
+        "name": "Running Enthusiast",
+        "description": "A shoe designed for running enthusiasts, offering great support and cushioning.",
+        "price": 999999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA04586C12W006-1.jpg",
+        "styleId": 2,
+        "authorId": 1
+    },
+    {
+        "name": "Kids' Playground Pals",
+        "description": "Durable and playful shoes for kids, designed for all their adventures.",
+        "price": 1199999,
+        "gender": "kids",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONA05530C-White.jpg",
+        "styleId": 1,
+        "authorId": 1
+    },
+    {
+        "name": "Casual Slip-Ons",
+        "description": "Easy-to-wear slip-on shoes, perfect for casual outings and comfort.",
+        "price": 599999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA06767C00P007-1.jpg",
+        "styleId": 2,
+        "authorId": 2
+    },
+    {
+        "name": "Urban Explorer Boots",
+        "description": "Explore the city streets with confidence in these stylish and rugged boots.",
+        "price": 699999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCON0-CON135251C-Black.jpg",
+        "styleId": 4,
+        "authorId": 2
+    },
+    {
+        "name": "All-Terrain Adventurer",
+        "description": "Versatile shoes built for all-terrain adventures and outdoor exploration.",
+        "price": 799999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONA03924C-Black.jpg",
+        "styleId": 3,
+        "authorId": 1
+    },
+    {
+        "name": "Fashionable X GOLF",
+        "description": "Elevate your style with these fashionable and elegant high heels.",
+        "price": 899999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA08646C70009H-1.jpg",
+        "styleId": 3,
+        "authorId": 1
+    },
+    {
+        "name": "Kids' Playtime Sneakers",
+        "description": "Sneakers designed for kids' active playtime, with fun and vibrant designs.",
+        "price": 999999,
+        "gender": "kids",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA04804C12W12H-1.jpg",
+        "styleId": 2,
+        "authorId": 2
+    },
+    {
+        "name": "Casual Canvas Shoes",
+        "description": "Comfortable and casual canvas shoes for laid-back days and outings.",
+        "price": 1199999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA04521C12W09H-1.jpg",
+        "styleId": 3,
+        "authorId": 1
+    },
+    {
+        "name": "Sleek Sneaker Collection",
+        "description": "A collection of sleek and stylish sneakers for a modern and trendy look.",
+        "price": 599999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA04954C005010-1.jpg",
+        "styleId": 4,
+        "authorId": 2
+    },
+    {
+        "name": "Active Lifestyle Taylor Star",
+        "description": "Stay active and comfortable with these versatile and supportive sandals.",
+        "price": 699999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA07907C005008-1.jpg",
+        "styleId": 2,
+        "authorId": 1
+    },
+    {
+        "name": "Kids' Adventure Boots",
+        "description": "Durable and adventure-ready boots for kids who love the outdoors.",
+        "price": 799999,
+        "gender": "kids",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONA05707C-Black.jpg",
+        "styleId": 4,
+        "authorId": 1
+    },
+    {
+        "name": "Classic Leather Loafers",
+        "description": "Timeless and classic leather loafers for a sophisticated and polished look.",
+        "price": 899999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONA05552C-Grey.jpg",
+        "styleId": 1,
+        "authorId": 2
+    },
+    {
+        "name": "Running Revolution Star Motion CX",
+        "description": "A revolutionary running shoe with cutting-edge technology for performance and comfort.",
+        "price": 999999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA05463C00W05H-1.jpg",
+        "styleId": 4,
+        "authorId": 1
+    },
+    {
+        "name": "Kids' Active Sneakers",
+        "description": "Active sneakers for kids, perfect for sports and outdoor activities.",
+        "price": 1199999,
+        "gender": "kids",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA05243CGRE02H-1.jpg",
+        "styleId": 3,
+        "authorId": 2
+    },
+    {
+        "name": "Casual Slip-On Sandals Chuck Taylor",
+        "description": "Easy-breezy slip-on sandals for casual and comfortable wear during summer.",
+        "price": 599999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONM5039C-Black.jpg",
+        "styleId": 2,
+        "authorId": 1
+    },
+    {
+        "name": "City Explorer Sneakers Contruct",
+        "description": "Explore the city in style with these trendy and comfortable sneakers.",
+        "price": 699999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA04521C12W09H-1.jpg",
+        "styleId": 4,
+        "authorId": 2
+    },
+    {
+        "name": "Hiking Adventure Boots Star",
+        "description": "Boots designed for adventurous hikes, offering durability and support.",
+        "price": 799999,
+        "gender": "male",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CONA05700C-Olive.jpg",
+        "styleId": 1,
+        "authorId": 1
+    },
+    {
+        "name": "Fashionable Ballet Flats Shoreline",
+        "description": "Chic and fashionable ballet flats for a stylish and comfortable look.",
+        "price": 899999,
+        "gender": "female",
+        "mainImg": "https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/1/01-CONVERSE-FFSSBCONA-CON537084C-White.jpg",
+        "styleId": 2,
+        "authorId": 2
+    }
+]
