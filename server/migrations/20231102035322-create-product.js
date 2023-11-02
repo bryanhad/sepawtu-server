@@ -10,27 +10,35 @@ module.exports = {
                 type: Sequelize.INTEGER,
             },
             name: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             slug: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             description: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             price: {
+                allowNull: false,
                 type: Sequelize.INTEGER,
             },
             mainImg: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             gender: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             styleId: {
+                allowNull: false,
                 type: Sequelize.INTEGER,
             },
             authorId: {
+                allowNull: false,
                 type: Sequelize.INTEGER,
             },
             createdAt: {
