@@ -59,11 +59,11 @@ module.exports = (sequelize, DataTypes) => {
                     isValidPrice(value) {
                         const MIN = 10_000
                         const MAX = 300_000_000
-                        if (value.length < MIN)
+                        if (value < MIN)
                             throw new Error(
                                 `Product's price must be atleast ${MIN}`
                             )
-                        if (value.length > MAX)
+                        if (value > MAX)
                             throw new Error(
                                 `Product's price cannot be more than ${MAX}`
                             )
@@ -105,6 +105,15 @@ module.exports = (sequelize, DataTypes) => {
             },
             styleId: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
+                validate: {
+                    notNull: {
+                        msg: "Product styleId is required",
+                    },
+                    notEmpty: {
+                        msg: "Product styleId is required",
+                    },
+                },
                 references: {
                     model: "Styles",
                     key: "id",
@@ -123,11 +132,10 @@ module.exports = (sequelize, DataTypes) => {
             modelName: "Product",
         }
     )
-    Product.beforeCreate((product) => {
+    Product.beforeValidate((product) => {
         const productName = product.name.toLowerCase().split(" ")
         const slug =
             productName.length >= 2 ? productName.join("-") : productName[0]
-
         product.slug = slug
     })
     return Product

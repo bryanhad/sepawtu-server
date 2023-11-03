@@ -23,9 +23,11 @@ router.get('/must-login', (req, res) => {
 
 router.use(mustAdmin)
 router.get('/admin/products', ProductController.getAll_ForAdmin)
+router.post('/admin/products', ProductController.createNew)
 
 router.get('/admin/must', (req, res) => {
     res.status(200).json({message: 'You have logged in and you are indeed an admin!'})
 })
+
 
 module.exports = {routes: router}
