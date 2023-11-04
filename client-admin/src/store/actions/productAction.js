@@ -1,4 +1,7 @@
 import { PRODUCT_SHOES_FETCH_ALL_SUCCESSFUL } from "./actionTypes"
+import { toast } from "react-toastify"
+
+const access_token = localStorage.getItem("user")
 
 export default class ProductAction {
     static fetchAll({size, page, name}) {
@@ -17,18 +20,34 @@ export default class ProductAction {
         }
         return async (dispatch) => {
             try {
-                const access_token = localStorage.getItem("user")
-
                 const res = await fetch(url, {
                     headers: { access_token },
                 })
                 const shoes = await res.json()
-                console.log(shoes)
                 dispatch({
                     type: PRODUCT_SHOES_FETCH_ALL_SUCCESSFUL,
                     payload: shoes,
                 })
             } catch (err) {
+                console.log(err)
+            }
+        }
+    }
+    static deleteById(id) {
+        return async (dispatch) => {
+            try {
+                const res = await fetch(import.meta.env.VITE_BASE_URL + `/admin/products/${id}`, {
+                    method: "DELETE",
+                    headers: {access_token}
+                })
+                const resObj = await res.json()
+                if (!res.ok) {
+                    throw {message: resObj.message}
+                }
+                toast.success('Successfuly deleted product')
+                dispatch(this.fetchAll({page: 1, size: 4}))
+            } catch (err) {
+                toast.error(err.message)
                 console.log(err)
             }
         }

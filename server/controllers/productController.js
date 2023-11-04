@@ -151,4 +151,26 @@ module.exports = class ProductController {
             next(err)
         }
     }
+    static async deleteById(req, res, next) {
+        const { id } = req.params
+
+        try {
+            const queriedProduct = await Product.findOne({ where: { id } })
+
+            if (!queriedProduct)
+                throw {
+                    name: "NotFound",
+                    msg: `Product with id '${id}' is not found`,
+                }
+
+            await queriedProduct.destroy()
+
+            res.status(200).json({
+                message: `Product with name '${queriedProduct.name}' has successfully been deleted`,
+                data: queriedProduct,
+            })
+        } catch (err) {
+            next(err)
+        }
+    }
 }

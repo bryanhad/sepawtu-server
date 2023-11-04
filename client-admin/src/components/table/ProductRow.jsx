@@ -1,7 +1,14 @@
+import showDeleteAlert from "../../helper/showDeleteAlert"
 import numToIdr from "../../helper/numToIdr"
 import Button from "../Button"
+import {useDispatch} from 'react-redux'
 
 export default function ProductRow({ product }) {
+    const dispatch = useDispatch()
+    function handleDelete(id, name, img) {
+        showDeleteAlert(id, name, img, dispatch)
+    }
+
     return (
         <tr>
             <td>{product.id}</td>
@@ -51,7 +58,7 @@ export default function ProductRow({ product }) {
                     <Button color="primary" className="px-4 py-2">
                         DETAIL
                     </Button>
-                    <Button color="danger" className="px-4 py-2">
+                    <Button onClick={() => handleDelete(product.id, product.name, product.mainImg)} color="danger" className="px-4 py-2">
                         DELETE
                     </Button>
                 </div>
