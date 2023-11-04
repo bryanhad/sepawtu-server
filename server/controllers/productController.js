@@ -5,7 +5,7 @@ const { Op } = require("sequelize")
 
 module.exports = class ProductController {
     static async getAll_ForAdmin(req, res, next) {
-        const { page, size, gender, style, pmax, pmin, slug, images } = req.query
+        const { page, size, gender, style, pmax, pmin, slug, images, name } = req.query
 
         const { maxPrice, minPrice } = getMaxMinPrice(pmax, pmin)
         const { offset, limit, pageQuery } = getPagination(page, size)
@@ -33,7 +33,7 @@ module.exports = class ProductController {
                 attributes: { exclude: ["createdAt", "updatedAt"] },
             })
 
-        if (gender || maxPrice || minPrice || style || slug)
+        if (gender || maxPrice || minPrice || style || slug || name)
             QUERY_OPTION.where = {}
 
         if (gender) QUERY_OPTION.where.gender = { [Op.iLike]: `${gender}` }
@@ -45,6 +45,7 @@ module.exports = class ProductController {
         }
         if (style) QUERY_OPTION.where.styleId = style
         if (slug) QUERY_OPTION.where.slug = slug
+        if (name) QUERY_OPTION.where.name = {[Op.iLike]: `%${name}%`}
 
         try {
             const { count, rows } = await Product.findAndCountAll(QUERY_OPTION)

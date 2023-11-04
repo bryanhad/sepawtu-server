@@ -1,18 +1,7 @@
-import React from "react"
-
-export default function Table({tHeads, dataArr, children}) {
-    const renderChildren = () => {
-        return React.Children.map(children, (child) => {
-            return React.cloneElement(child, {
-                data: dataArr
-            })
-        })
-    }
-
-
+export default function Table({ tHeads, children }) {
     return (
-        <div className="overflow-x-auto">
-            <table className="w-full">
+        <div className="overflow-x-auto flex-[1]">
+            <table className="table">
                 <thead>
                     <tr>
                         {tHeads.map((head, i) => (
@@ -20,9 +9,7 @@ export default function Table({tHeads, dataArr, children}) {
                         ))}
                     </tr>
                 </thead>
-                <tbody>
-                    {renderChildren()}
-                </tbody>
+                <tbody>{children}</tbody>
             </table>
         </div>
     )
