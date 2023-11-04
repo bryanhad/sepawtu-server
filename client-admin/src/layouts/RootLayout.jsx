@@ -1,8 +1,24 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import SideNav from "../components/SideNav"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import UserAction from "../store/actions/userAction"
 
 export default function RootLayout() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                dispatch(await UserAction.getUserInfo())
+            } catch (err) {
+                navigate('/login')
+            }
+        }
+        fetchUser()
+    }, [dispatch, navigate])
+
     return (
         <div className="min-h-screen flex flex-col lg:flex-row">
             <NavBar className="lg:hidden" />

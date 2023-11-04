@@ -5,3 +5,33 @@
 * {
     font-family: 'Nunito', sans-serif;
 }
+
+label {
+    cursor: pointer;
+}
+input:focus {
+    outline: none;
+}
+
+@keyframes shake {
+    0% {
+      margin-left: 0rem;
+    }
+    25% {
+      margin-left: 0.5rem;
+    }
+    75% {
+      margin-left: -0.5rem;
+    }
+    100% {
+      margin-left: 0rem;
+    }
+  }
+  
+  .errorShake {
+    animation: shake 0.2s ease-in-out 0s 2;
+  }
+
+  .converse-font {
+    font-family: 'Syncopate', sans-serif;
+}

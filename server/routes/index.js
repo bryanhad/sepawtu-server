@@ -16,6 +16,8 @@ router.get('/styles', StyleController.getAll)
 
 router.use(mustLogin)
 
+router.get('/user-info', UserController.getInfo)
+
 router.get('/must-login', (req, res) => {
     console.log(req.user)
     res.status(200).json({message: 'You have logged in!'})

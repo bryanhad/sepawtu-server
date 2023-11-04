@@ -10,7 +10,7 @@ async function mustLogin(req, res, next) {
         const decodedToken = validateToken(access_token)
 
         const queriedUser = await User.findByPk(decodedToken.id, {
-            attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+            attributes: { exclude: ["password", "createdAt", "updatedAt", "address", "phoneNumber"] },
         })
         if (!queriedUser) throw { name: "InvalidToken" }
 

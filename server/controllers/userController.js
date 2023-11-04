@@ -56,6 +56,15 @@ class UserController {
             next(err)
         }
     }
+
+    static async getInfo(req, res, next) {
+        try {
+            console.log('MASUK SAMPE SINI GA')
+            return res.status(200).json(req.user)
+        } catch (err) {
+            next(err)
+        }
+    }
 }
 
 module.exports = UserController
