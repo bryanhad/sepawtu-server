@@ -5,7 +5,8 @@ const { Op } = require("sequelize")
 
 module.exports = class ProductController {
     static async getAll_ForAdmin(req, res, next) {
-        const { page, size, gender, style, pmax, pmin, slug, images, name } = req.query
+        const { page, size, gender, style, pmax, pmin, slug, images, name } =
+            req.query
 
         const { maxPrice, minPrice } = getMaxMinPrice(pmax, pmin)
         const { offset, limit, pageQuery } = getPagination(page, size)
@@ -22,7 +23,13 @@ module.exports = class ProductController {
                 },
                 {
                     model: User,
-                    attributes: ["id", "username", "email", "role", "profilePicture"]
+                    attributes: [
+                        "id",
+                        "username",
+                        "email",
+                        "role",
+                        "profilePicture",
+                    ],
                 },
             ],
             order: [["id", "ASC"]],
@@ -45,7 +52,7 @@ module.exports = class ProductController {
         }
         if (style) QUERY_OPTION.where.styleId = style
         if (slug) QUERY_OPTION.where.slug = slug
-        if (name) QUERY_OPTION.where.name = {[Op.iLike]: `%${name}%`}
+        if (name) QUERY_OPTION.where.name = { [Op.iLike]: `%${name}%` }
 
         try {
             const { count, rows } = await Product.findAndCountAll(QUERY_OPTION)
@@ -130,20 +137,33 @@ module.exports = class ProductController {
             next(err)
         }
     }
-    static async getById(req, res, next) {
+    static async getById_ForAdmin(req, res, next) {
         const { id } = req.params
         try {
             const queriedProduct = await Product.findOne({
                 where: { id },
+                attributes: {exlude: ['slug']},
                 include: [
-                    { model: User, attributes: { exclude: ["password"] } },
-                    { model: Type, attributes: ["name"] },
+                    {
+                        model: User,
+                        attributes: {
+                            exclude: ["password", "createdAt", "updatedAt"],
+                        },
+                    },
+                    {
+                        model: Image,
+                        attributes: ['imgUrl']
+                    },
+                    {
+                        model: Style,
+                        attributes: ['name']
+                    }
                 ],
             })
             if (!queriedProduct)
                 throw {
                     name: "NotFound",
-                    msg: `Lodging with id '${id}' is not found`,
+                    msg: `Product with id '${id}' is not found`,
                 }
 
             res.status(200).json(queriedProduct)

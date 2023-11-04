@@ -1,7 +1,8 @@
 import showDeleteAlert from "../../helper/showDeleteAlert"
 import numToIdr from "../../helper/numToIdr"
 import Button from "../Button"
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 
 export default function ProductRow({ product }) {
     const dispatch = useDispatch()
@@ -45,7 +46,9 @@ export default function ProductRow({ product }) {
                         />
                     </div>
                     <div className="flex flex-col text-sm">
-                        <p className="max-w-[150px] truncate">{product.User.username}</p>
+                        <p className="max-w-[150px] truncate">
+                            {product.User.username}
+                        </p>
                         <p className="max-w-[150px] truncate">
                             {product.User.email}
                         </p>
@@ -55,10 +58,23 @@ export default function ProductRow({ product }) {
             <td></td>
             <td>
                 <div className="flex gap-2">
-                    <Button color="primary" className="px-4 py-2">
+                    <Link
+                        className="px-4 py-2 text-white bg-sky-400 rounded-md"
+                        to={`/products/${product.id}`}
+                    >
                         DETAIL
-                    </Button>
-                    <Button onClick={() => handleDelete(product.id, product.name, product.mainImg)} color="danger" className="px-4 py-2">
+                    </Link>
+                    <Button
+                        onClick={() =>
+                            handleDelete(
+                                product.id,
+                                product.name,
+                                product.mainImg
+                            )
+                        }
+                        color="danger"
+                        className="px-4 py-2"
+                    >
                         DELETE
                     </Button>
                 </div>

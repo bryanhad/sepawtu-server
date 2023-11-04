@@ -11,4 +11,14 @@ module.exports = class StyleController {
             next(err)
         }
     }
+    static async getAll_ForAdmin(req, res, next) {
+        try {
+            const styles = await Style.findAll({
+                attributes: { exclude: ["createdAt", "updatedAt", 'mainImg'] },
+            })
+            res.status(200).json(styles)
+        } catch (err) {
+            next(err)
+        }
+    }
 }
