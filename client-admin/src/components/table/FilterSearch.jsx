@@ -3,7 +3,7 @@ import Button from "../Button"
 
 export default function FilterSearch({ placeholder, handler }) {
     return (
-        <form className="flex gap-3" onSubmit={(e) => handler(e)}>
+        <form className="flex gap-3 flex-[1]" onSubmit={(e) => handler(e)}>
             <div className="px-2 flex-[1] py-1 flex gap-3 text-slate-500 items-center rounded-md border">
                 <label htmlFor="searchBar" className="p-2">
                     <GoSearch />

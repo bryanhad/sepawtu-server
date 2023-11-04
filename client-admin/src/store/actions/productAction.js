@@ -93,4 +93,28 @@ export default class ProductAction {
             }
         }
     }
+    static editById(id, formObj) {
+        return async (dispatch) => {
+            try {
+                const res = await fetch(
+                    import.meta.env.VITE_BASE_URL + `/admin/products/${id}`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            access_token
+                          },
+                          body: JSON.stringify(formObj)
+                    }
+                )
+                const resObj = await res.json()
+                if (!res.ok) throw { message: resObj.message }
+                toast.success(resObj.message)
+                dispatch(this.getById(id))
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    }
 }

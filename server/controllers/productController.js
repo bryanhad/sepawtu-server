@@ -142,7 +142,7 @@ module.exports = class ProductController {
         try {
             const queriedProduct = await Product.findOne({
                 where: { id },
-                attributes: {exlude: ['slug']},
+                attributes: { exlude: ["slug"] },
                 include: [
                     {
                         model: User,
@@ -152,12 +152,12 @@ module.exports = class ProductController {
                     },
                     {
                         model: Image,
-                        attributes: ['imgUrl']
+                        attributes: ["imgUrl"],
                     },
                     {
                         model: Style,
-                        attributes: ['name']
-                    }
+                        attributes: ["name"],
+                    },
                 ],
             })
             if (!queriedProduct)
@@ -188,6 +188,29 @@ module.exports = class ProductController {
             res.status(200).json({
                 message: `Product with name '${queriedProduct.name}' has successfully been deleted`,
                 data: queriedProduct,
+            })
+        } catch (err) {
+            next(err)
+        }
+    }
+    static async editById(req, res, next) {
+        const { id } = req.params
+
+        try {
+            const queriedProduct = await Product.findOne({ where: { id } })
+            if (!queriedProduct)
+                throw {
+                    name: "NotFound",
+                    msg: `Lodging with id '${id}' is not found`,
+                }
+
+            const productName = req.body.name.toLowerCase().split(" ")
+            const slug =
+                productName.length >= 2 ? productName.join("-") : productName[0]
+            await queriedProduct.update({...req.body, slug })
+
+            res.status(200).json({
+                message: `Lodging with name '${queriedProduct.name}' has successfully been updated`,
             })
         } catch (err) {
             next(err)

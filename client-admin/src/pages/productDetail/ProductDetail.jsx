@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import ProductAction from "../store/actions/ProductAction"
-import Container from "../components/Container"
-import TitlePage from "../components/TitlePage"
-import ImageCarousel from "../components/ImageCarousel"
-import MiniProfile from "../components/MiniProfile"
-import ViewProductDetail from "./productDetail/ViewProductDetail"
-import EditProductDetail from "./productDetail/EditProductDetail"
-import Button from "../components/Button"
+import ProductAction from "../../store/actions/ProductAction"
+import Container from "../../components/Container"
+import TitlePage from "../../components/TitlePage"
+import ImageCarousel from "../../components/ImageCarousel"
+import MiniProfile from "../../components/MiniProfile"
+import ViewProductDetail from "./ViewProductDetail"
+import EditProductDetail from "./EditProductDetail"
 
 export default function ProductDetail() {
     const dispatch = useDispatch()
@@ -27,6 +26,11 @@ export default function ProductDetail() {
             setImages([{ imgUrl: shoeDetail.mainImg }, ...shoeDetail.Images])
         }
     }, [shoeDetail])
+
+    function toggleIsEditing() {
+        setIsEditing((current) => !current)
+    }
+
     return (
         <>
             <Container className="flex flex-col lg:flex-row lg:justify-between items-center gap-2">
@@ -51,34 +55,15 @@ export default function ProductDetail() {
                         />
                         <div className="flex flex-col gap-3">
                             {isEditing ? (
-                                <EditProductDetail shoeDetail={shoeDetail} />
+                                <EditProductDetail
+                                    shoeDetail={shoeDetail}
+                                    toggleIsEditing={toggleIsEditing}
+                                />
                             ) : (
-                                <ViewProductDetail shoeDetail={shoeDetail} />
-                            )}
-                            {!isEditing ? (
-                                <Button
-                                    onClick={() =>
-                                        setIsEditing((current) => !current)
-                                    }
-                                    color={"primary"}
-                                    className="py-3"
-                                >
-                                    Edit
-                                </Button>
-                            ) : (
-                                <div className="flex gap-4">
-                                    <Button color="success" className="w-full ">
-                                        SUBMIT
-                                    </Button>
-                                    <Button
-                                        onClick={() =>
-                                            setIsEditing((current) => !current)
-                                        }
-                                        className="w-full py-3"
-                                    >
-                                        CANCEL
-                                    </Button>
-                                </div>
+                                <ViewProductDetail
+                                    shoeDetail={shoeDetail}
+                                    toggleIsEditing={toggleIsEditing}
+                                />
                             )}
                         </div>
                     </>

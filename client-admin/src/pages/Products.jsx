@@ -8,6 +8,7 @@ import ProductRow from "../components/table/productRow"
 import FilterSearch from "../components/table/FilterSearch"
 import getFormDataObj from "../helper/getFormDataObj"
 import Pagination from "../components/table/Pagination"
+import { Link } from "react-router-dom"
 
 export default function Products() {
     const dispatch = useDispatch()
@@ -31,9 +32,8 @@ export default function Products() {
     }
 
     function goPrev() {
-        const prevPage = 
-            shoes.currentPage - 1 < 1
-                ? shoes.totalPages : shoes.currentPage - 1
+        const prevPage =
+            shoes.currentPage - 1 < 1 ? shoes.totalPages : shoes.currentPage - 1
         dispatch(ProductAction.fetchAll({ size: 4, page: prevPage }))
     }
 
@@ -43,10 +43,15 @@ export default function Products() {
                 <TitlePage>Products</TitlePage>
             </Container>
             <Container className="flex-[1] flex flex-col">
-                <FilterSearch
-                    placeholder={`Search for product's name`}
-                    handler={handleSearch}
-                />
+                <div className="flex gap-2">
+                    <FilterSearch
+                        placeholder={`Search for product's name`}
+                        handler={handleSearch}
+                    />
+                    <Link to='/products/add' className="bg-emerald-400 text-white px-6 py-3 rounded-md">
+                        ADD
+                    </Link>
+                </div>
                 {shoes?.data?.length && (
                     <>
                         <Table

@@ -29,6 +29,7 @@ router.post('/admin/products', ProductController.createNew)
 router.delete('/admin/products/:id', ProductController.deleteById)
 router.get('/admin/products/:id', ProductController.getById_ForAdmin)
 router.get('/admin/styles', StyleController.getAll_ForAdmin)
+router.put('/admin/products/:id', ProductController.editById)
 
 router.get('/admin/must', (req, res) => {
     res.status(200).json({message: 'You have logged in and you are indeed an admin!'})
