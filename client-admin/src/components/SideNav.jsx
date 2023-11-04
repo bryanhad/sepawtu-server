@@ -6,7 +6,7 @@ import { NavLink, useLocation, } from 'react-router-dom'
 import { useRef } from 'react'
 import {MdOutlineArrowForwardIos} from 'react-icons/md'
 
-export default function SideNav({className}) {
+export default function SideNav({className, logoutHandler}) {
     const linkRef = useRef(null)
     const location = useLocation();
 
@@ -27,6 +27,9 @@ export default function SideNav({className}) {
                 {link.to === location.pathname && <MdOutlineArrowForwardIos/>}
             </NavLink>
         ))}
+        <button onClick={logoutHandler} className='bg-slate-700 rounded-md p-2'>
+            Logout
+        </button>
     </nav>
   )
 }
