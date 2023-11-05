@@ -1,5 +1,11 @@
 import { toast } from "react-toastify"
-import { USER_GET_INFO, USER_LOGIN_SUCCESSFUL } from "./actionTypes"
+import {
+    USER_FETCH_ALL_SUCCESSFUL,
+    USER_GET_INFO,
+    USER_LOGIN_SUCCESSFUL,
+} from "./actionTypes"
+
+const access_token = localStorage.getItem("user")
 
 export default class UserAction {
     static async login(formObj) {
@@ -35,7 +41,7 @@ export default class UserAction {
             const res = await fetch(
                 import.meta.env.VITE_BASE_URL + "/user-info",
                 {
-                    headers: { access_token }
+                    headers: { access_token },
                 }
             )
             if (!res.ok) {
@@ -49,6 +55,54 @@ export default class UserAction {
         } catch (err) {
             toast.error(err.message)
             throw { message: err.message }
+        }
+    }
+
+    static fetchUsers() {
+        return async (dispatch) => {
+            try {
+                const res = await fetch(
+                    import.meta.env.VITE_BASE_URL + "/admin/users",
+                    {
+                        headers: { access_token },
+                    }
+                )
+                const users = await res.json()
+                dispatch({
+                    type: USER_FETCH_ALL_SUCCESSFUL,
+                    payload: users,
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    }
+
+    static async register(formObj) {
+        try {
+            const res = await fetch(
+                import.meta.env.VITE_BASE_URL + "/admin/register",
+                {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                        access_token,
+                    },
+                    body: JSON.stringify(formObj),
+                }
+            )
+            const data = await res.json()
+            if (!res.ok) {
+                throw [...data]
+            }
+            toast.success(data.message)
+            return (dispatch) => {
+                dispatch(this.fetchUsers())
+            }
+        } catch (err) {
+            toast.error(err.message || 'Please fill in the form correctly')
+            throw [...err]
         }
     }
 }
