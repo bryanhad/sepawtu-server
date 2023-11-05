@@ -1,9 +1,7 @@
 // PRODUCT REDUCER
 export const PRODUCT_SHOES_FETCH_ALL_SUCCESSFUL = 'procut/shoes/fetchAllSuccessful'
-export const PRODUCT_SHOES_DELETE_SUCCESSFUL = 'product/shoes/deleteSuccessful'
 export const PRODUCT_SHOES_GET_BY_ID = 'product/shoes/getById'
 export const PRODUCT_STYLES_FETCH_ALL_SUCCESSFUL = 'product/styles/fetchAllSuccessful'
-export const PRODUCT_SHOES_EDIT_BY_ID = 'product/shoes/editById'
 
 // USER REDUCER
 export const USER_LOGIN_SUCCESSFUL = 'user/loginSuccessful'

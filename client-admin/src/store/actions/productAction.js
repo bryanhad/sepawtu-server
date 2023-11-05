@@ -117,4 +117,76 @@ export default class ProductAction {
             }
         }
     }
+    static async addNew(formObj) {
+        try {
+            const res = await fetch(
+                import.meta.env.VITE_BASE_URL + `/admin/products`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        access_token
+                      },
+                      body: JSON.stringify(formObj)
+                }
+            )
+            const resObj = await res.json()
+            if (!res.ok) throw resObj
+            toast.success(resObj.message)
+            return async(dispatch) => {
+                dispatch(this.fetchAll())
+            }
+        } catch (err) {
+            toast.error(err.message || 'Please fill in the form correctly')
+            throw err
+        }
+    }
+    static deleteStyleById(id) {
+        return async (dispatch) => {
+            try {
+                const res = await fetch(
+                    import.meta.env.VITE_BASE_URL + `/admin/styles/${id}`,
+                    {
+                        method: "DELETE",
+                        headers: { access_token },
+                    }
+                )
+                const resObj = await res.json()
+                if (!res.ok) {
+                    throw { message: resObj.message }
+                }
+                toast.success("Successfuly deleted style")
+                dispatch(this.fetchAllStyles())
+            } catch (err) {
+                toast.error(err.message)
+                console.log(err)
+            }
+        }
+    }
+    static async addNewStyle(formObj) {
+        try {
+            const res = await fetch(
+                import.meta.env.VITE_BASE_URL + `/admin/styles`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        access_token
+                      },
+                      body: JSON.stringify(formObj)
+                }
+            )
+            const resObj = await res.json()
+            if (!res.ok) throw resObj
+            toast.success(resObj.message)
+            return async(dispatch) => {
+                dispatch(this.fetchAllStyles())
+            }
+        } catch (err) {
+            toast.error(err.message || 'Please fill in the form correctly')
+            throw err
+        }
+    }
 }

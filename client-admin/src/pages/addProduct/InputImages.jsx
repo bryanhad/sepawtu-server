@@ -4,15 +4,14 @@ import Button from "../../components/Button"
 import Label from "../../components/form/Label"
 import { BsTrash } from "react-icons/bs"
 
-export default function InputImages({ onChange, setForm, form }) {
+export default function InputImages({ onChange, setForm, error }) {
     const [inputImageAmount, setInputImageAmount] = useState(2)
 
     function handleAdditionalImages(e) {
         setForm((prev) => {
-            prev.images[e.target.name] = {imgUrl: e.target.value}
+            prev.images[e.target.name] = { imgUrl: e.target.value }
             return { ...prev }
         })
-        console.log(form)
     }
 
     function handleIncreaseInputAmount() {
@@ -31,6 +30,7 @@ export default function InputImages({ onChange, setForm, form }) {
                     Product&apos;s thumbnail
                 </Label>
                 <InputImageUrl id="mainImg" onChange={onChange} />
+                {error && <p className="text-error text-sm">{error.message}</p>}
             </div>
             <div className="flex flex-col gap-2">
                 <div className="flex justify-between items-center">
@@ -55,7 +55,11 @@ export default function InputImages({ onChange, setForm, form }) {
                             onChange={handleAdditionalImages}
                         />
                         {i >= 2 && (
-                            <button type="button" onClick={handleDecreaseInputAmount} className="text-slate-400">
+                            <button
+                                type="button"
+                                onClick={handleDecreaseInputAmount}
+                                className="text-slate-400"
+                            >
                                 <BsTrash />
                             </button>
                         )}

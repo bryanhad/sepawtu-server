@@ -32,7 +32,7 @@ module.exports = class ProductController {
                     ],
                 },
             ],
-            order: [["id", "ASC"]],
+            order: [["id", "DESC"]],
         }
         if (images)
             QUERY_OPTION.include.push({
@@ -134,15 +134,15 @@ module.exports = class ProductController {
                     msg: `Product has to have atleast 2 additional images aside from it's thumbnail`,
                 }
             }
-
+            
             const newProduct = await Product.create(
                 {
                     ...productBody,
                     authorId: req.user.id,
                 },
                 { transaction: t }
-            )
-
+                )
+                
             await Image.bulkCreate(
                 images.map((el) => ({ imgUrl:el.imgUrl, productId: newProduct.id })),
                 { transaction: t }
@@ -155,8 +155,8 @@ module.exports = class ProductController {
                 data: newProduct,
             })
         } catch (err) {
-            await t.rollback()
             next(err)
+            await t.rollback()
         }
     }
     static async getById_ForAdmin(req, res, next) {

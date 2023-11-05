@@ -1,5 +1,4 @@
 import {CiBoxList} from 'react-icons/ci'
-import {BsImages} from 'react-icons/bs'
 import {LuShapes} from 'react-icons/lu'
 import {FiUsers} from 'react-icons/fi'
 import { NavLink, useLocation, } from 'react-router-dom'
@@ -12,7 +11,6 @@ export default function SideNav({className, logoutHandler}) {
 
     const links = [
         {name: 'Products', to: '/', icon: <CiBoxList/>},
-        {name: 'Images', to: '/images', icon: <BsImages/>},
         {name: 'Styles', to: '/styles', icon: <LuShapes/>},
         {name: 'Users', to: '/users', icon: <FiUsers/>},
     ]

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import Container from "../../components/Container"
 import TitlePage from "../../components/TitlePage"
-import InputText from "../../components/form/InputText"
-import InputPrice from "../../components/form/InputPrice"
-import InputOptions from "../../components/form/InputOptions"
 import { useDispatch, useSelector } from "react-redux"
 import ProductAction from "../../store/actions/ProductAction"
 import InputImages from "./InputImages"
+import RegularInputs from "./RegularInputs"
+import Button from "../../components/Button"
+import { useNavigate } from "react-router-dom"
 
 export default function AddProducts() {
+    const navigate = useNavigate()
     const { genders, styles } = useSelector((store) => store.product)
     const dispatch = useDispatch()
 
@@ -19,8 +20,10 @@ export default function AddProducts() {
         gender: "men",
         styleId: 1,
         mainImg: "",
-        images: []
+        images: [],
     })
+
+    const [errors, setErrors] = useState([])
 
     useEffect(() => {
         dispatch(ProductAction.fetchAllStyles())
@@ -30,7 +33,18 @@ export default function AddProducts() {
         setForm((prev) => {
             return { ...prev, [e.target.name]: e.target.value }
         })
-        console.log(form)
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+        try {
+            dispatch(await ProductAction.addNew(form))
+            navigate('/')
+        } catch (err) {
+            if (Array.isArray(err)) {
+                setErrors(err)
+            }
+        }
     }
 
     const formInputs = [
@@ -73,62 +87,28 @@ export default function AddProducts() {
                 <TitlePage className="text-center">Add Product</TitlePage>
             </Container>
             <Container className="flex-[1]">
-                <form action="" className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-4">
-                        {formInputs.map((input) => {
-                            switch (input.type) {
-                                case "text":
-                                    return (
-                                        <InputText
-                                            key={input.id}
-                                            id={input.id}
-                                            label={input.label}
-                                            placeholder={input.placeholder}
-                                            onChange={handleChange}
-                                            value={form[input.id]}
-                                            required={true}
-                                        />
-                                    )
-                                case "textArea":
-                                    return (
-                                        <InputText
-                                            key={input.id}
-                                            id={input.id}
-                                            label={input.label}
-                                            placeholder={input.placeholder}
-                                            onChange={handleChange}
-                                            value={form[input.id]}
-                                            required={true}
-                                        />
-                                    )
-                                case "number":
-                                    return (
-                                        <InputPrice
-                                            key={input.id}
-                                            id={input.id}
-                                            label={input.label}
-                                            placeholder={input.placeholder}
-                                            onChange={handleChange}
-                                            value={form[input.id]}
-                                            required={true}
-                                        />
-                                    )
-                                case "select":
-                                    return (
-                                        <InputOptions
-                                            key={input.id}
-                                            id={input.id}
-                                            label={input.label}
-                                            onChange={handleChange}
-                                            optionsArr={input.options}
-                                            defaultValue={input.defaultValue}
-                                            required={true}
-                                        />
-                                    )
-                            }
-                        })}
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <RegularInputs
+                            formInputs={formInputs}
+                            form={form}
+                            handleChange={handleChange}
+                            errors={errors}
+                        />
+                        <InputImages
+                            onChange={handleChange}
+                            setForm={setForm}
+                            form={form}
+                            error={errors?.find(err => err.inputName === 'mainImg')}
+                        />
                     </div>
-                    <InputImages onChange={handleChange} setForm={setForm} form={form}/>
+                    <Button
+                        className="w-full py-2 mt-4"
+                        color="success"
+                        type="submit"
+                    >
+                        SUBMIT
+                    </Button>
                 </form>
             </Container>
         </>

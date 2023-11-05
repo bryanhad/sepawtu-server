@@ -1,7 +1,7 @@
 import Swal from "sweetalert2"
 import ProductAction from "../store/actions/ProductAction"
 
-export default function showDeleteAlert(id, name, img, dispatch) {
+export default function showProductDeleteAlert(id, name, img, dispatch) {
     Swal.fire({
         title: `Are you sure to delete '${name}'?`,
         imageUrl: img,

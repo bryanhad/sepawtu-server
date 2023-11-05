@@ -1,4 +1,4 @@
-import showDeleteAlert from "../../helper/showDeleteAlert"
+import showProductDeleteAlert from "../../helper/showProductDeleteAlert"
 import numToIdr from "../../helper/numToIdr"
 import Button from "../Button"
 import { useDispatch } from "react-redux"
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 export default function ProductRow({ product }) {
     const dispatch = useDispatch()
     function handleDelete(id, name, img) {
-        showDeleteAlert(id, name, img, dispatch)
+        showProductDeleteAlert(id, name, img, dispatch)
     }
 
     return (
@@ -17,7 +17,7 @@ export default function ProductRow({ product }) {
                 <div className="w-[80px] h-[80px]">
                     <img
                         src={product.mainImg}
-                        alt=""
+                        alt={`${product.name}'s thumbnail`}
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -41,7 +41,7 @@ export default function ProductRow({ product }) {
                     <div className="w-[30px] h-[30px] rounded-full bg-slate-100">
                         <img
                             src={product.User.profilePicture}
-                            alt=""
+                            alt={``}
                             className="w-full h-full object-cover"
                         />
                     </div>

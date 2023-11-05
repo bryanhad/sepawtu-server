@@ -40,6 +40,7 @@ module.exports = {
                     model: "Styles",
                     key: "id",
                 },
+                onDelete: "CASCADE",
             },
             authorId: {
                 allowNull: false,

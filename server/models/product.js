@@ -81,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
                         msg: "Product gender field is required",
                     },
                     isValid(value) {
-                        const validGenders = ["male", "female", "kids"]
+                        const validGenders = ["men", "women", "kids"]
                         if (!validGenders.includes(value))
                             throw new Error(
                                 `Gender can only be the following: ${validGenders.join(
