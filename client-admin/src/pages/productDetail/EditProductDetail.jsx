@@ -2,10 +2,13 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Button from "../../components/Button"
 import ProductAction from "../../store/actions/ProductAction"
+import InputText from "../../components/form/InputText"
+import InputPrice from "../../components/form/InputPrice"
+import InputOptions from "../../components/form/InputOptions"
 
-export default function EditProductDetail({toggleIsEditing}) {
+export default function EditProductDetail({ toggleIsEditing }) {
     const dispatch = useDispatch()
-    const { shoeDetail, styles } = useSelector((store) => store.product)
+    const { shoeDetail, styles, genders } = useSelector((store) => store.product)
     const [form, setForm] = useState({})
 
     useEffect(() => {
@@ -24,7 +27,6 @@ export default function EditProductDetail({toggleIsEditing}) {
         setForm((prev) => {
             return { ...prev, [e.target.name]: e.target.value }
         })
-        console.log(form)
     }
 
     function handleSubmit(e) {
@@ -40,89 +42,54 @@ export default function EditProductDetail({toggleIsEditing}) {
                     switch (key) {
                         case "styleId":
                             return (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <label htmlFor="style">Style</label>
-                                    <select
-                                        id="style"
-                                        name={key}
-                                        className="select select-bordered w-full max-w-xs"
-                                        defaultValue={form[key]}
-                                        onChange={(e) => handleChange(e)}
-                                    >
-                                        {styles.map((style) => (
-                                            <option
-                                                key={style.id}
-                                                value={style.id}
-                                            >
-                                                {style.name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
+                                <InputOptions
+                                    key={i}
+                                    id={key}
+                                    label={"Style"}
+                                    defaultValue={form[key]}
+                                    onChange={handleChange}
+                                    optionsArr={styles}
+                                />
                             )
                         case "gender":
                             return (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <label htmlFor="style">Gender</label>
-                                    <select
-                                        id="style"
-                                        name={key}
-                                        className="select select-bordered w-full max-w-xs"
-                                        defaultValue={form[key]}
-                                        onChange={(e) => handleChange(e)}
-                                    >
-                                        {["Men", "Women", "Kids"].map(
-                                            (gender, i) => (
-                                                <option
-                                                    key={i}
-                                                    value={gender.toLowerCase()}
-                                                >
-                                                    {gender}
-                                                </option>
-                                            )
-                                        )}
-                                    </select>
-                                </div>
+                                <InputOptions
+                                    key={i}
+                                    id={key}
+                                    label={"Gender"}
+                                    defaultValue={form[key]}
+                                    onChange={handleChange}
+                                    optionsArr={genders}
+                                />
                             )
                         case "price":
                             return (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <label htmlFor="style">Price</label>
-                                    <input
-                                        name={key}
-                                        value={form[key]}
-                                        type="number"
-                                        placeholder="Type here"
-                                        className="input input-bordered w-full max-w-xs"
-                                        onChange={(e) => handleChange(e)}
-                                    />
-                                </div>
+                                <InputPrice
+                                    key={i}
+                                    id={key}
+                                    label="Price"
+                                    onChange={handleChange}
+                                    value={form[key]}
+                                />
                             )
                         default:
                             return (
-                                <div key={i} className="flex flex-col">
-                                    <label htmlFor={key}>{key}</label>
-                                    <input
-                                        name={key}
-                                        onChange={(e) => handleChange(e)}
-                                        value={form[key]}
-                                        type="text"
-                                        placeholder="Type here"
-                                        className="input input-bordered w-full max-w-xs"
-                                    />
-                                </div>
+                                <InputText
+                                    key={i}
+                                    id={key}
+                                    label={key}
+                                    onChange={handleChange}
+                                    value={form[key]}
+                                />
                             )
                     }
                 })}
             </div>
             <div className="flex gap-4 mt-4">
-                <Button type='submit' color="success" className="w-full ">
+                <Button type="submit" color="success" className="w-full ">
                     SUBMIT
                 </Button>
-                <Button
-                    onClick={toggleIsEditing}
-                    className="w-full py-3"
-                >
+                <Button onClick={toggleIsEditing} className="w-full py-3">
                     CANCEL
                 </Button>
             </div>

@@ -8,7 +8,7 @@ import Login from "./pages/Login"
 import LoginLayout from "./layouts/LoginLayout"
 import { toast } from "react-toastify"
 import ProductDetail from "./pages/productDetail/ProductDetail"
-import AddProducts from "./pages/addProducts"
+import AddProducts from "./pages/addProduct/AddProducts"
 
 const router = createBrowserRouter([
     {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             { path: "/images", element: <Images /> },
             { path: "/styles", element: <Styles /> },
             { path: "/users", element: <Users /> },
-            { path: '/products/add', element: <AddProducts/>},
+            { path: "/products/add", element: <AddProducts /> },
             { path: "/products/:id", element: <ProductDetail /> },
         ],
         loader: () => {

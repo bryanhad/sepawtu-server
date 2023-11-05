@@ -10,6 +10,15 @@ module.exports = (sequelize, DataTypes) => {
         {
             productId: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
+                validate: {
+                    notNull: {
+                        msg: "Product Id is required",
+                    },
+                    notEmpty: {
+                        msg: "Product Id is required",
+                    },
+                },
                 references: {
                     model: "Products",
                     key: "id"

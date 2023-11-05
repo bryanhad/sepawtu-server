@@ -1,6 +1,6 @@
 const getMaxMinPrice = require("../helpers/getMaxMinPrice")
 const getPagination = require("../helpers/getPagination")
-const { Product, Style, User, Image } = require("../models")
+const { Product, Style, User, Image, sequelize } = require("../models")
 const { Op } = require("sequelize")
 
 module.exports = class ProductController {
@@ -124,16 +124,38 @@ module.exports = class ProductController {
         }
     }
     static async createNew(req, res, next) {
+        const { images, ...productBody } = req.body
+        const t = await sequelize.transaction()
+
         try {
-            const newProduct = await Product.create({
-                ...req.body,
-                authorId: req.user.id,
-            })
+            if (!images || images.length < 2) {
+                throw {
+                    name: "InsufficientInput",
+                    msg: `Product has to have atleast 2 additional images aside from it's thumbnail`,
+                }
+            }
+
+            const newProduct = await Product.create(
+                {
+                    ...productBody,
+                    authorId: req.user.id,
+                },
+                { transaction: t }
+            )
+
+            await Image.bulkCreate(
+                images.map((el) => ({ imgUrl:el.imgUrl, productId: newProduct.id })),
+                { transaction: t }
+            )
+
+            await t.commit()
+
             res.status(201).json({
                 message: `Succeeded add new Lodging '${newProduct.name}'`,
                 data: newProduct,
             })
         } catch (err) {
+            await t.rollback()
             next(err)
         }
     }
@@ -207,7 +229,7 @@ module.exports = class ProductController {
             const productName = req.body.name.toLowerCase().split(" ")
             const slug =
                 productName.length >= 2 ? productName.join("-") : productName[0]
-            await queriedProduct.update({...req.body, slug })
+            await queriedProduct.update({ ...req.body, slug })
 
             res.status(200).json({
                 message: `Lodging with name '${queriedProduct.name}' has successfully been updated`,

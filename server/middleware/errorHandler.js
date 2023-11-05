@@ -28,10 +28,12 @@ module.exports = function errorHandler(err, req, res, next) {
                 return res
                     .status(400)
                     .json({ message: `${capitalizedString} cannot be empty` })
-            } else {
+            } else if (err.field) {
                 return res
                     .status(400)
                     .json({ message: `${capitalizeWord(err.field)} cannot be empty` })
+            } else {
+                return res.status(400).json({message: err.msg ? err.msg : 'Insufficient input'})
             }
         case "InvalidInput":
             return res

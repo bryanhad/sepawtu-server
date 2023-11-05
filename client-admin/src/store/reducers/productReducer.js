@@ -3,7 +3,12 @@ import { PRODUCT_SHOES_EDIT_BY_ID, PRODUCT_SHOES_FETCH_ALL_SUCCESSFUL, PRODUCT_S
 const INITIAL_STATE = {
     shoes: [],
     shoeDetail: {},
-    styles: []
+    styles: [],
+    genders: [
+        { id: "men", name: "Men" },
+        { id: "women", name: "Women" },
+        { id: "kids", name: "Kids" },
+    ]
 }
 
 export default function productReducer(state = INITIAL_STATE, action) {
