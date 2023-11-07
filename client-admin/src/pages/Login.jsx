@@ -57,6 +57,7 @@ export default function Login() {
                         className="w-full"
                         placeholder="Insert your email..."
                         onChange={(e) => handleChange(e)}
+                        type={'email'}
                     />
                     <InputWithIcon
                         icon={<LiaKeySolid />}
@@ -65,6 +66,7 @@ export default function Login() {
                         className="w-full"
                         placeholder="Insert your password..."
                         onChange={(e) => handleChange(e)}
+                        type={'password'}
                     />
                     {!isValid && (
                         <p

@@ -82,9 +82,7 @@ module.exports = class ProductController {
             include: [
                 {
                     model: Style,
-                    attributes: {
-                        exclude: ["createdAt", "updatedAt", "mainImg"],
-                    },
+                    attributes: ["id", "name"],
                 },
             ],
             order: [["id", "ASC"]],
@@ -134,17 +132,20 @@ module.exports = class ProductController {
                     msg: `Product has to have atleast 2 additional images aside from it's thumbnail`,
                 }
             }
-            
+
             const newProduct = await Product.create(
                 {
                     ...productBody,
                     authorId: req.user.id,
                 },
                 { transaction: t }
-                )
-                
+            )
+
             await Image.bulkCreate(
-                images.map((el) => ({ imgUrl:el.imgUrl, productId: newProduct.id })),
+                images.map((el) => ({
+                    imgUrl: el.imgUrl,
+                    productId: newProduct.id,
+                })),
                 { transaction: t }
             )
 
@@ -159,12 +160,40 @@ module.exports = class ProductController {
             await t.rollback()
         }
     }
+    static async getById_ForUser(req, res, next) {
+        const { id } = req.params
+        try {
+            const queriedProduct = await Product.findOne({
+                where: { id },
+                attributes: { exclude: ["slug"] },
+                include: [
+                    {
+                        model: Image,
+                        attributes: ["imgUrl"],
+                    },
+                    {
+                        model: Style,
+                        attributes: ["name"],
+                    },
+                ],
+            })
+            if (!queriedProduct)
+                throw {
+                    name: "NotFound",
+                    msg: `Product with id '${id}' is not found`,
+                }
+
+            res.status(200).json(queriedProduct)
+        } catch (err) {
+            next(err)
+        }
+    }
     static async getById_ForAdmin(req, res, next) {
         const { id } = req.params
         try {
             const queriedProduct = await Product.findOne({
                 where: { id },
-                attributes: { exlude: ["slug"] },
+                attributes: { exclude: ["slug"] },
                 include: [
                     {
                         model: User,
