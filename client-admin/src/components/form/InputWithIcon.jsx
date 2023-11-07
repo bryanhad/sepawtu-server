@@ -5,6 +5,7 @@ export default function InputWithIcon({
     className,
     placeholder,
     onChange,
+    type
 }) {
     return (
         <div
@@ -17,7 +18,7 @@ export default function InputWithIcon({
                 <span className="text-red-500 absolute right-0 top-0">*</span>
             )}
             <input
-                type="text"
+                type={type}
                 className="w-full"
                 id={name}
                 name={name}
